@@ -5,29 +5,39 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <title>Application météo</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+<div id="content">
+    <h1>Découvrez la météo près de chez-vous</h1>
 
-<h1>Découvrez la météo près de chez-vous</h1>
+        <div id="input">
+            <input type="text" placeholder="ville" id="city">
+            <button id="validate">Valider</button>
+        </div>
 
-<input type="text" placeholder="ville" id="city">
-<button id="validate">Valider</button>
+        <p id="weather"></p>
 
-<p id="weather"></p>
+        <div id="temp">
+            <p id="temp-min"></p>
+            <p id="temp-max"></p>
+        </div>
 
-<p id="temperature"></p>
-<p id="temp-min"></p>
-<p id="temp-max"></p>
+        <p id="temperature"></p>
 
-<p id="wind"></p>
-<p id="windGust"></p>
+        <div id="wind-info">
+            <p id="wind"></p>
+            <p id="windGust"></p>
+        </div>
 
-<p id="clouds"></p>
+        <p id="clouds"></p>
 
-<p id="rain"></p>
-<p id="humidity"></p>
-<p id="precipitation"></p>
-
+        <div id="humid">
+            <p id="humidity"></p>
+            <p id="precipitation"></p>
+        </div>
+</div>
 <script src="app.js"></script>
 </body>
 </html>

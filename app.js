@@ -17,8 +17,6 @@ button.addEventListener("click", function (){
     xhr.open("GET", requestURL);
     xhr.responseType="json";
 
-
-
     xhr.onload = function () {
 
         if (xhr.status !== 200) {
@@ -30,7 +28,7 @@ button.addEventListener("click", function (){
         weather.innerHTML = response.weather[0].description;
         temperature.innerHTML = "Température : " + Math.ceil(response.main.temp) + " degrés";
         tempMin.innerHTML = "Température minimale : " + Math.ceil(response.main.temp_min) + " degrés";
-        tempMax.innerHTML = "Température maximale : " + Math.ceil(response.main.temp_max) + "degrés";
+        tempMax.innerHTML = "Température maximale : " + Math.ceil(response.main.temp_max) + " degrés";
         humidity.innerHTML = "Humidité ambiante : " + Math.ceil(response.main.humidity) + "%";
         wind.innerHTML = "Vitesse du vent : " + Math.ceil(response.wind.speed) + " Km/h";
         windGust.innerHTML = "Vitesse des rafales de vents : " + Math.ceil(response.wind.gust) + " Km/h";
