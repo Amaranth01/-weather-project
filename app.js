@@ -1,14 +1,7 @@
-let button = document.getElementById('validate');
-let temperature = document.getElementById('temperature')
-let humidity = document.getElementById('humidity');
-let tempMin = document.getElementById('temp-min');
-let wind = document.getElementById('wind');
-let windGust = document.getElementById("windGust");
-let clouds = document.getElementById("clouds");
-let weather = document.getElementById('weather');
-let tempMax = document.getElementById('temp-max');
+let button = $('#validate');
 
-button.addEventListener("click", function (){
+
+button.click( function () {
 
     let city = document.getElementById('city').value;
     let requestURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=f06370bad7fc3896fd6345658c19d135&units=metric&lang=fr";
@@ -25,18 +18,14 @@ button.addEventListener("click", function (){
 
         let  response = xhr.response;
 
-        weather.innerHTML = response.weather[0].description;
-        temperature.innerHTML = "Température : " + Math.ceil(response.main.temp) + " degrés";
-        tempMin.innerHTML = "Température minimale : " + Math.ceil(response.main.temp_min) + " degrés";
-        tempMax.innerHTML = "Température maximale : " + Math.ceil(response.main.temp_max) + " degrés";
-        humidity.innerHTML = "Humidité ambiante : " + Math.ceil(response.main.humidity) + "%";
-        wind.innerHTML = "Vitesse du vent : " + Math.ceil(response.wind.speed) + " Km/h";
-        windGust.innerHTML = "Vitesse des rafales de vents : " + Math.ceil(response.wind.gust) + " Km/h";
-        clouds.innerHTML = "Opacité des nuage : " + Math.ceil(response.clouds.all) + "%";
-    }
-
-    if (response.weather.main === "dégagé") {
-        document.body.style.backgroundImage = "/src = 'sun.jpg'";
+        $('#weather').text(response.weather[0].description);
+        $('#temperature').text("Température : " + Math.ceil(response.main.temp) + " degrés");
+        $('#temp-min').text("Température minimale : " + Math.ceil(response.main.temp_min) + " degrés");
+        $('#temp-max').text("Température maximale : " + Math.ceil(response.main.temp_max) + " degrés") ;
+        $('#humidity').text("Humidité ambiante : " + Math.ceil(response.main.humidity) + "%");
+        $('#wind').text("Vitesse du vent : " + Math.ceil(response.wind.speed) + " Km/h");
+        $("#windGust").text("Vitesse des rafales de vents : " + Math.ceil(response.wind.gust) + " Km/h") ;
+        $("#clouds").text("Opacité des nuage : " + Math.ceil(response.clouds.all) + "%");
     }
     xhr.send();
 })
